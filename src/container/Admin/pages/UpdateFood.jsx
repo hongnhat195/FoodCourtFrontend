@@ -39,7 +39,7 @@ const Foods = () => {
   const fetchListCategory = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/category/getListCategory`
+        `https://project1952001.herokuapp.com/api/v1/category/getListCategory`
       );
       setCategory(res.data);
       console.log(res.data);
@@ -54,7 +54,7 @@ const Foods = () => {
     e.preventDefault();
     console.log(newFood);
     await axios.put(
-      `http://localhost:5000/api/v1/food/updateFood/${id}`,
+      `https://project1952001.herokuapp.com/api/v1/food/updateFood/${id}`,
       newFood,
       {
         headers: {
@@ -76,7 +76,7 @@ const Foods = () => {
   const loadnewFood = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/food/detail/${id}`
+        `https://project1952001.herokuapp.com/api/v1/food/detail/${id}`
       );
       setnewFood(res.data);
     } catch (error) {
@@ -93,7 +93,7 @@ const Foods = () => {
     let formdata = new FormData();
     formdata.append("food-img", file);
     await axios.post(
-      `http://localhost:5000/api/v1/food/uploadImg/${id}`,
+      `https://project1952001.herokuapp.com/api/v1/food/uploadImg/${id}`,
       formdata,
       {
         headers: {

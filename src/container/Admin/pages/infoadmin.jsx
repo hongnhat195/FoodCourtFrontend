@@ -20,7 +20,7 @@ const InfoAdmin = () => {
     const handelupdateInfo = async (e) => {
         e.preventDefault();
         console.log(info);
-        await axios.put(`http://localhost:5000/api/v1/security/admin/updateAdmin/${data.id}`, 
+        await axios.put(`https://project1952001.herokuapp.com/api/v1/security/admin/updateAdmin/${data.id}`, 
         info,
         {
           headers: {
@@ -34,7 +34,7 @@ const InfoAdmin = () => {
           console.log(data.id);
         try {
             const res = await axios.get(
-              `http://localhost:5000/api/v1/security/admin/detailAdmin/${data.id}`
+              `https://project1952001.herokuapp.com/api/v1/security/admin/detailAdmin/${data.id}`
             );
             setInfo(res.data);
             console.log(res.data);

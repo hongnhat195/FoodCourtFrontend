@@ -15,7 +15,7 @@ const EditCategory =()=>{
       const handelupdateCategory = async (e) => {
         e.preventDefault();
         console.log(newCate);
-        await axios.put(`http://localhost:5000/api/v1/category/updateCategory/${id}`, newCate,
+        await axios.put(`https://project1952001.herokuapp.com/api/v1/category/updateCategory/${id}`, newCate,
         {
           headers: {
             token: JSON.parse(localStorage.getItem('admin')).token,
@@ -33,7 +33,7 @@ const EditCategory =()=>{
       const loadnewCate =  async () => {
         try {
             const res = await axios.get(
-              `http://localhost:5000/api/v1/category/detail/${id}`
+              `https://project1952001.herokuapp.com/api/v1/category/detail/${id}`
             );
             setnewCate(res.data);
             console.log(res.data);

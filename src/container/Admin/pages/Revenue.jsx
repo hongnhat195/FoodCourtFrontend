@@ -63,7 +63,7 @@ const Revenue = () => {
   };
   const fetChart = async () => {
     const res = await axios.get(
-      "http://localhost:5000/api/v1/analyst/totalByMonth"
+      "https://project1952001.herokuapp.com/api/v1/analyst/totalByMonth"
     );
     let dataarray = [];
     res.data.forEach((element) => {
@@ -109,7 +109,7 @@ const Revenue = () => {
   });
   const fetRevenue = async () => {
     const res = await axios.get(
-      "http://localhost:5000/api/v1/analyst/totalByDate",
+      "https://project1952001.herokuapp.com/api/v1/analyst/totalByDate",
     );
     ditgitRevenues.forEach((revenue, index) => {
       revenue.count = res.data[index].count;
@@ -124,7 +124,7 @@ const Revenue = () => {
   const fetchListBillToday = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/order/listallordertoday`,
+        `https://project1952001.herokuapp.com/api/v1/order/listallordertoday`,
         {
           headers: {
             token: JSON.parse(localStorage.getItem("admin")).token,
@@ -144,7 +144,7 @@ const Revenue = () => {
   const fetchListbyDate = async (e) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/order/listallorderbydate/${day.date}`,
+        `https://project1952001.herokuapp.com/api/v1/order/listallorderbydate/${day.date}`,
         {
           headers: {
             token: JSON.parse(localStorage.getItem("admin")).token,
@@ -163,7 +163,7 @@ const Revenue = () => {
   const fetchListBillMonth = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/order/listallorderbymonth`,
+        `https://project1952001.herokuapp.com/api/v1/order/listallorderbymonth`,
         {
           headers: {
             token: JSON.parse(localStorage.getItem("admin")).token,

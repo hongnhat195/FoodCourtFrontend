@@ -32,7 +32,7 @@ export default function Categorys() {
   const fetchListCategory = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/category/getListCategory`
+        `https://project1952001.herokuapp.com/api/v1/category/getListCategory`
       );
       setCategory(res.data);
       console.log(res.data);
@@ -49,7 +49,7 @@ export default function Categorys() {
     e.preventDefault();
     // e.target.reset();clear field input
     await axios.post(
-      "http://localhost:5000/api/v1/category/addCategory",
+      "https://project1952001.herokuapp.com/api/v1/category/addCategory",
       newCate,
       {
         headers: {
@@ -68,14 +68,14 @@ export default function Categorys() {
   const searchRecords = () => {
     alert(search);
     axios
-      .get(`http://localhost:5000/api/v1/employee/searchRecord/${search}`)
+      .get(`https://project1952001.herokuapp.com/api/v1/employee/searchRecord/${search}`)
       .then((response) => {
         setCategory(response.data);
       });
   };
   const deleteRecord = async (id) => {
     await axios
-      .delete(`http://localhost:5000/api/v1/category/deleteCategory/${id}`, {
+      .delete(`https://project1952001.herokuapp.com/api/v1/category/deleteCategory/${id}`, {
         headers: {
           token: JSON.parse(localStorage.getItem("admin")).token,
         },

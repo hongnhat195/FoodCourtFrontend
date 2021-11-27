@@ -47,7 +47,7 @@ const Foods = () => {
   };
   const handleAdd = async (e) => {
     e.preventDefault();
-    await axios.post(`http://localhost:5000/api/v1/food/addFood`, newFood, {
+    await axios.post(`https://project1952001.herokuapp.com/api/v1/food/addFood`, newFood, {
       headers: {
         token: JSON.parse(localStorage.getItem("admin")).token,
       },
@@ -67,7 +67,7 @@ const Foods = () => {
   const fetchListCategory = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/category/getListCategory`
+        `https://project1952001.herokuapp.com/api/v1/category/getListCategory`
       );
       setCategory(res.data);
       console.log(res.data);
@@ -81,7 +81,7 @@ const Foods = () => {
   const fetchListFood = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/food/getListFood`
+        `https://project1952001.herokuapp.com/api/v1/food/getListFood`
       );
       setlistFood(res.data);
       console.log(res.data);
@@ -98,7 +98,7 @@ const Foods = () => {
 
   const deleteRecord = async (id) => {
     await axios
-      .delete(`http://localhost:5000/api/v1/food/deleteFood/${id}`, {
+      .delete(`https://project1952001.herokuapp.com/api/v1/food/deleteFood/${id}`, {
         headers: {
           token: JSON.parse(localStorage.getItem("admin")).token,
         },

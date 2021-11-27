@@ -47,7 +47,7 @@ const Accounts = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5000/api/v1/security/admin/addAdmin",
+        "https://project1952001.herokuapp.com/api/v1/security/admin/addAdmin",
         account,
         {
           headers: {
@@ -72,7 +72,7 @@ const Accounts = () => {
   const fetchListAccount= async()=>{
     try {
       const res = await axios.get(
-          `http://localhost:5000/api/v1/security/admin/getAllEmployee`
+          `https://project1952001.herokuapp.com/api/v1/security/admin/getAllEmployee`
         );
       setlistAccount(res.data);
       console.log(res.data);
@@ -88,7 +88,7 @@ const Accounts = () => {
  const deleteRecord = async (id) =>
  {
    console.log(id);
-   await axios.delete(`http://localhost:5000/api/v1/security/admin/deleteAdmin/${id}`,
+   await axios.delete(`https://project1952001.herokuapp.com/api/v1/security/admin/deleteAdmin/${id}`,
    {
     headers: {
       token: JSON.parse(localStorage.getItem('admin')).token,
