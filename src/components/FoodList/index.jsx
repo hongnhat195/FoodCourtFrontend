@@ -22,7 +22,7 @@ export default function FoodList() {
   });
   const fetchListCart = async () => {
     const res = await axios.post(
-      "http://localhost:5000/api/v1/food/getListFoodbyName"
+      "https://project1952001.herokuapp.com/api/v1/food/getListFoodbyName"
     );
     dispatch(fetchCart(res.data));
     await setLoading(true);

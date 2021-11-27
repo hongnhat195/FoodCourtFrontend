@@ -14,7 +14,7 @@ const createPayment = async (body) => {
   try {
     const { data } = await axios({
       method: 'POST',
-      url: 'http://localhost:5000/api/v1/order/order',
+      url: 'https://project1952001.herokuapp.com/api/v1/order/order',
       data: body,
       headers: {
         token: JSON.parse(localStorage.getItem('user')).token,
