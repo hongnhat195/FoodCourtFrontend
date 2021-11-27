@@ -15,19 +15,19 @@ export default function SortingFood() {
     event.preventDefault();
     if(event.target.value == ""){
       const res = await axios.post(
-        "http://localhost:5000/api/v1/food/getListFoodbyName"
+        "https://project1952001.herokuapp.com/api/v1/food/getListFoodbyName"
       );
       dispatch(fetchCart(res.data));
     }
     else if(event.target.value == "SortASC"){
       const res = await axios.get(
-        "http://localhost:5000/api/v1/food/getListFoodByPriceASC"
+        "https://project1952001.herokuapp.com/api/v1/food/getListFoodByPriceASC"
       );
       dispatch(fetchCart(res.data));
     }
     else if(event.target.value == "SortDESC"){
       const res = await axios.get(
-        "http://localhost:5000/api/v1/food/getListFoodByPriceDESC"
+        "https://project1952001.herokuapp.com//api/v1/food/getListFoodByPriceDESC"
       );
       dispatch(fetchCart(res.data));
     }

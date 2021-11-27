@@ -16,7 +16,7 @@ export default function SearchFood() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/api/v1/food/getListFoodbyName",{ name });
+    const res = await axios.post("https://project1952001.herokuapp.com/api/v1/food/getListFoodbyName",{ name });
     console.log("text: ", res.data);
     dispatch(fetchCart(res.data));
   };
