@@ -1,16 +1,19 @@
-import { Button } from '@mui/material';
-import Box from '@mui/material/Box';
-import Rating from '@mui/material/Rating';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import Skelection from '../../../components/Skelection';
-import { utils } from '../../../helpers';
+import { Button } from "@mui/material";
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Skelection from "../../../components/Skelection";
+import { utils } from "../../../helpers";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/Reducers/todoCart";
 
 const { formatMoney } = utils;
 
 export default function DetailFood(props) {
+  const dispatch = useDispatch();
   const [valueRating, setValueRating] = useState(0);
   const [stateFood, setFood] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,20 +21,22 @@ export default function DetailFood(props) {
 
   const fetchDetailFood = async () => {
     const res = await axios.get(
-      `https://project1952001.herokuapp.com/api/v1/food/detail/${id}`
+      `http://localhost:5000/api/v1/food/detail/${id}`
     );
     // console.log('result ' + res);
     setFood(res.data);
     setLoading(true);
   };
-
+  const handleAddToCart = () => {
+    dispatch(addToCart(stateFood));
+  };
   useEffect(() => {
     fetchDetailFood();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div style={{ marginTop: '100px' }}>
+    <div style={{ marginTop: "100px" }}>
       {!loading ? (
         <Skelection />
       ) : (
@@ -45,9 +50,9 @@ export default function DetailFood(props) {
                 <div>
                   <h2
                     style={{
-                      fontSize: '50px',
-                      fontWeight: '600',
-                      marginBottom: '20px',
+                      fontSize: "50px",
+                      fontWeight: "600",
+                      marginBottom: "20px",
                     }}
                   >
                     {stateFood.name}
@@ -56,8 +61,8 @@ export default function DetailFood(props) {
                     <div className="col-md-6">
                       <h4
                         style={{
-                          float: 'left',
-                          fontSize: '30px',
+                          float: "left",
+                          fontSize: "30px",
                         }}
                         class="price"
                       >
@@ -67,8 +72,8 @@ export default function DetailFood(props) {
                     <div className="col-md-6">
                       <Rating
                         style={{
-                          float: 'right',
-                          fontSize: '30px',
+                          float: "right",
+                          fontSize: "30px",
                         }}
                         name="half-rating-read"
                         defaultValue={4.5}
@@ -80,14 +85,15 @@ export default function DetailFood(props) {
                   <p
                     className="mt-3"
                     style={{
-                      fontSize: '15px',
+                      fontSize: "15px",
                     }}
                   >
                     {stateFood.description}
                   </p>
                   <Button
+                    onClick={handleAddToCart}
                     style={{
-                      padding: '10px 50px 10px 50px',
+                      padding: "10px 50px 10px 50px",
                     }}
                     color="success"
                     variant="outlined"
@@ -100,7 +106,7 @@ export default function DetailFood(props) {
                 <br />
                 <h3
                   style={{
-                    fontSize: '30px',
+                    fontSize: "30px",
                   }}
                   className="mb-5"
                 >
@@ -110,14 +116,14 @@ export default function DetailFood(props) {
                   <div className="col-8">
                     <Box
                       sx={{
-                        width: '100%',
-                        maxWidth: '100%',
+                        width: "100%",
+                        maxWidth: "100%",
                       }}
                     >
                       <TextField
                         color="warning"
                         style={{
-                          width: '100%',
+                          width: "100%",
                         }}
                         id="outlined-multiline-static"
                         multiline
@@ -130,8 +136,8 @@ export default function DetailFood(props) {
                     <Typography
                       className="mb-5"
                       style={{
-                        fontSize: '20px',
-                        marginTop: '-23px',
+                        fontSize: "20px",
+                        marginTop: "-23px",
                       }}
                       component="legend"
                     >
@@ -139,7 +145,7 @@ export default function DetailFood(props) {
                     </Typography>
                     <Rating
                       style={{
-                        fontSize: '30px',
+                        fontSize: "30px",
                       }}
                       name="half-rating"
                       value={valueRating}
@@ -157,3 +163,4 @@ export default function DetailFood(props) {
     </div>
   );
 }
+
