@@ -10,8 +10,6 @@ import "./assets/css/index.css";
 
 import App from "./App";
 
-document.title = "Fourcourt";
-
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
